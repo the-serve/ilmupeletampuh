@@ -1,0 +1,480 @@
+:root {
+  --primary: #f60505;
+  --bg: #fff;
+  --dark: #010101;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.2);
+  --soft-shadow: rgba(0, 0, 0, 0.1);
+  --radius: 14px;
+  --transition: 0.3s ease;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
+.navbar-logo img {
+  max-width: 60px;
+  margin-right: 8px;
+}
+
+.navbar-logo span {
+  color: var(--primary);
+}
+
+/* NAV LINKS */
+.navbar .navbar-nav a {
+  color: white;
+  margin: 0 1rem;
+  font-size: 1.15rem;
+  position: relative;
+  transition: var(--transition);
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s ease;
+}
+
+.navbar .navbar-nav a:hover::after {
+  width: 100%;
+}
+
+#menu {
+  display: none;
+  cursor: pointer;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+    url("../img/back2.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 0 7%;
+}
+
+.hero .content {
+  max-width: 60rem;
+  animation: fadeUp 1.2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero .content h1 {
+  font-size: 3.2rem;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 4px 12px black;
+}
+.hero .content h1 span {
+  color: var(--primary);
+}
+
+.hero .content p {
+  margin: 1rem 0;
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cta-hero {
+  display: inline-block;
+  padding: 1rem 3rem;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50px;
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.6);
+  transition: var(--transition);
+}
+
+.cta-hero:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+}
+
+/* ---------------- ABOUT ---------------- */
+.about {
+  padding: 6rem 7%;
+}
+
+.about .row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-img {
+  flex: 1 1 40%;
+}
+.about-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.about .content {
+  flex: 1 1 55%;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.about h2 span {
+  color: var(--primary);
+}
+
+.about .content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.about .content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ---------------- LAYANAN ---------------- */
+.layanan {
+  padding: 6rem 7%;
+  text-align: center;
+}
+
+.layanan .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 2rem;
+}
+
+.layanan-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 14px var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.layanan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 26px var(--shadow);
+}
+
+.layanan-card img {
+  width: 100%;
+}
+
+.layanan-card-title {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.layanan-card-description {
+  padding: 0 18px 40px;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+.cta {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 22px;
+  background: var(--primary);
+  color: white;
+  border-radius: 30px;
+  transition: var(--transition);
+}
+
+.cta:hover {
+  background: black;
+  transform: translateX(-50%) scale(1.08);
+}
+
+/* ---------------- CONTACT ---------------- */
+.contact {
+  padding: 6rem 7%;
+  background: #000;
+  text-align: center;
+  color: white;
+}
+
+.kontak-form {
+  max-width: 450px;
+  margin: auto;
+  background: #030000;
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 14px var(--soft-shadow);
+}
+
+.kontak-form input,
+.kontak-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  border-radius: 8px;
+  resize: none;
+}
+
+.kontak-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.kontak-form button:hover {
+  background: black;
+}
+
+/* ---------------- TESTIMONI ---------------- */
+.testimoni {
+  padding: 6rem 7%;
+  text-align: center;
+}
+
+.testimoni .testimoni-card {
+  width: 100%;
+  margin: auto;
+}
+
+.testimoni img {
+  width: 60%;
+  max-width: 320px;
+  border-radius: 10px;
+  animation: fadeSlide 6s infinite;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* VIDEO SECTION */
+#video {
+  padding: 6rem 7%;
+  text-align: center;
+}
+
+#video h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+#video .video {
+  max-width: 650px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+#video video {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  background: #000;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  background: var(--primary);
+  text-align: center;
+  padding: 2rem 0;
+  color: white;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: #fff;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: yellow;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+  html {
+    font-size: 75%;
+  }
+
+  #menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background: #000;
+    width: 250px;
+    height: 100vh;
+    padding: 2rem;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  .about .row {
+    flex-direction: column;
+  }
+
+  .testimoni img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  z-index: 99999;
+  transition: 0.3s ease;
+}
+
+.whatsapp-float i {
+  font-size: 32px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  background: #20ba5a;
+  cursor: pointer;
+}
+
+/* Efek Glow Pulse */
+@keyframes pulse-wa {
+  0% {
+    box-shadow: 0 0 0px rgba(37, 211, 102, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(37, 211, 102, 1);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(37, 211, 102, 0.7);
+  }
+}
+
+.whatsapp-float {
+  animation: pulse-wa 2.5s infinite;
+}
